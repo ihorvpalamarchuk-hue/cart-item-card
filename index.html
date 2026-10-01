@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кошик — Cart Item Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <h1 class="page__title">Кошик</h1>
+    <p class="page__hint">Потягніть правий нижній кут рамки, щоб перевірити, як картка стискається і розтягується.</p>
+
+    <div class="demo">
+      <article class="cart-item" data-state="default" aria-labelledby="item-1-title">
+        <img class="cart-item__image" src="img/kosiv-cup.svg" width="160" height="160"
+             alt="Керамічна чашка з зеленим і вохристим хвилястим орнаментом">
+
+        <div class="cart-item__body">
+          <header class="cart-item__header">
+            <div class="cart-item__info">
+              <h2 class="cart-item__title" id="item-1-title">Чашка «Косівська хвиля»</h2>
+              <p class="cart-item__meta">Ручний розпис, 300&nbsp;мл</p>
+              <p class="cart-item__meta"><data value="450">450&nbsp;₴</data> за штуку</p>
+            </div>
+            <button type="button" class="icon-button cart-item__remove" aria-label="Видалити товар"
+                    aria-expanded="false" aria-controls="item-1-confirm">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </header>
+
+          <footer class="cart-item__footer">
+            <div class="quantity" role="group" aria-label="Кількість">
+              <button type="button" class="quantity__button" data-action="decrease"
+                      aria-label="Зменшити кількість" disabled>
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18">
+                  <path d="M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <output class="quantity__value" id="item-1-qty" aria-live="polite">1</output>
+              <button type="button" class="quantity__button" data-action="increase"
+                      aria-label="Збільшити кількість">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18">
+                  <path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <p class="cart-item__total">
+              <span class="visually-hidden">Сума:</span>
+              <output class="cart-item__total-value" for="item-1-qty">450 ₴</output>
+            </p>
+          </footer>
+
+          <div class="confirm" id="item-1-confirm" role="group" aria-labelledby="item-1-confirm-text" hidden>
+            <p class="confirm__text" id="item-1-confirm-text">Видалити чашку з кошика?</p>
+            <div class="confirm__actions">
+              <button type="button" class="button button--ghost" data-action="cancel">Залишити</button>
+              <button type="button" class="button button--danger" data-action="confirm">Видалити</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="empty" aria-labelledby="empty-title" hidden>
+        <h2 class="empty__title" id="empty-title">Товар видалено з кошика</h2>
+        <button type="button" class="button button--ghost" data-action="restore">Повернути чашку</button>
+      </section>
+    </div>
+
+    <p class="visually-hidden" role="status" id="cart-status"></p>
+  </main>
+</body>
+</html>
